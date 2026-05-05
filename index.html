@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stride — Tienda de zapatillas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="header__inner">
+      <a class="logo" href="#">Stride</a>
+      <nav class="nav" aria-label="Principal">
+        <a href="#catalogo">Catálogo</a>
+        <a href="#ofertas">Ofertas</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <button type="button" class="cart-toggle" id="cartToggle" aria-expanded="false" aria-controls="cartPanel">
+        <span class="cart-toggle__label">Carrito</span>
+        <span class="cart-toggle__badge" id="cartBadge" hidden>0</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero__content">
+        <p class="hero__eyebrow">Colección 2026 · Datos de demostración</p>
+        <h1 class="hero__title">Zapatillas que marcan el paso</h1>
+        <p class="hero__text">
+          Tienda ficticia <strong>Stride</strong>: modelos inventados, precios de ejemplo y envío simulado.
+          Ideal para practicar HTML, CSS y JavaScript.
+        </p>
+        <a class="hero__cta" href="#catalogo">Ver zapatillas</a>
+      </div>
+    </section>
+
+    <section class="catalog" id="catalogo">
+      <div class="catalog__head">
+        <h2 class="catalog__title" id="ofertas">Catálogo</h2>
+        <p class="catalog__sub">Añade al carrito y revisa el total en el panel lateral.</p>
+      </div>
+
+      <div class="grid" id="productGrid">
+        <!-- Los productos también se pueden generar desde JS; aquí están en HTML para SEO y claridad -->
+        <article class="card" data-id="air-volt-x1">
+          <div class="card__img-wrap">
+            <img
+              class="card__img"
+              src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=85"
+              alt="Zapatilla deportiva roja Air Volt X1"
+              width="600"
+              height="750"
+              loading="lazy"
+            />
+          </div>
+          <div class="card__body">
+            <h3 class="card__name">Air Volt X1</h3>
+            <p class="card__desc">Running ligera · Suela reactiva (ficticia)</p>
+            <p class="card__price" data-price="349.90">S/. 349.90</p>
+            <button type="button" class="btn btn--primary js-add-cart">Añadir al carrito</button>
+          </div>
+        </article>
+
+        <article class="card" data-id="urban-shadow-pro">
+          <div class="card__img-wrap">
+            <img
+              class="card__img"
+              src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=600&q=85"
+              alt="Zapatilla urbana negra Urban Shadow Pro"
+              width="600"
+              height="750"
+              loading="lazy"
+            />
+          </div>
+          <div class="card__body">
+            <h3 class="card__name">Urban Shadow Pro</h3>
+            <p class="card__desc">Estilo street · Caña media (ficticia)</p>
+            <p class="card__price" data-price="289.00">S/. 289.00</p>
+            <button type="button" class="btn btn--primary js-add-cart">Añadir al carrito</button>
+          </div>
+        </article>
+
+        <article class="card" data-id="neo-breeze-360">
+          <div class="card__img-wrap">
+            <img
+              class="card__img"
+              src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&q=85"
+              alt="Zapatilla blanca Neo Breeze 360"
+              width="600"
+              height="750"
+              loading="lazy"
+            />
+          </div>
+          <div class="card__body">
+            <h3 class="card__name">Neo Breeze 360</h3>
+            <p class="card__desc">Ventilación 360° · Plantilla memory (ficticia)</p>
+            <p class="card__price" data-price="319.50">S/. 319.50</p>
+            <button type="button" class="btn btn--primary js-add-cart">Añadir al carrito</button>
+          </div>
+        </article>
+
+        <article class="card" data-id="trail-peak-7">
+          <div class="card__img-wrap">
+            <img
+              class="card__img"
+              src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=600&q=85"
+              alt="Zapatilla de trail verde Trail Peak 7"
+              width="600"
+              height="750"
+              loading="lazy"
+            />
+          </div>
+          <div class="card__body">
+            <h3 class="card__name">Trail Peak 7</h3>
+            <p class="card__desc">Grip todoterreno · Impermeable (ficticia)</p>
+            <p class="card__price" data-price="399.00">S/. 399.00</p>
+            <button type="button" class="btn btn--primary js-add-cart">Añadir al carrito</button>
+          </div>
+        </article>
+
+        <article class="card" data-id="court-legacy-gold">
+          <div class="card__img-wrap">
+            <img
+              class="card__img"
+              src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=600&q=85"
+              alt="Zapatilla de cancha blanca Court Legacy Gold"
+              width="600"
+              height="750"
+              loading="lazy"
+            />
+          </div>
+          <div class="card__body">
+            <h3 class="card__name">Court Legacy Gold</h3>
+            <p class="card__desc">Retro cancha · Detalles dorados (ficticia)</p>
+            <p class="card__price" data-price="269.90">S/. 269.90</p>
+            <button type="button" class="btn btn--primary js-add-cart">Añadir al carrito</button>
+          </div>
+        </article>
+
+        <article class="card" data-id="pulse-runner-nitro">
+          <div class="card__img-wrap">
+            <img
+              class="card__img"
+              src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=600&q=85"
+              alt="Zapatilla de running azul Pulse Runner Nitro"
+              width="600"
+              height="750"
+              loading="lazy"
+            />
+          </div>
+          <div class="card__body">
+            <h3 class="card__name">Pulse Runner Nitro</h3>
+            <p class="card__desc">Competición · Placa de carbono (ficticia)</p>
+            <p class="card__price" data-price="459.00">S/. 459.00</p>
+            <button type="button" class="btn btn--primary js-add-cart">Añadir al carrito</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <footer class="footer" id="contacto">
+      <p><strong>Stride</strong> · Av. Inventada 123, Lima · +51 999 000 111 · hola@stride-demo.pe</p>
+      <p class="footer__note">Proyecto de demostración — no es una tienda real.</p>
+    </footer>
+  </main>
+
+  <div class="cart-backdrop" id="cartBackdrop" hidden></div>
+  <aside class="cart-panel" id="cartPanel" aria-hidden="true" aria-labelledby="cartTitle">
+    <div class="cart-panel__head">
+      <h2 class="cart-panel__title" id="cartTitle">Tu carrito</h2>
+      <button type="button" class="cart-close" id="cartClose" aria-label="Cerrar carrito">&times;</button>
+    </div>
+    <div class="cart-panel__body">
+      <ul class="cart-list" id="cartList"></ul>
+      <p class="cart-empty" id="cartEmpty">El carrito está vacío. ¡Añade un par!</p>
+    </div>
+    <div class="cart-panel__foot">
+      <div class="cart-total-row">
+        <span>Total</span>
+        <strong id="cartTotal">S/. 0.00</strong>
+      </div>
+      <button type="button" class="btn btn--checkout" id="checkoutBtn" disabled>Finalizar compra</button>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
