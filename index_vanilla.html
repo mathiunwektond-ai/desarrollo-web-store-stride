@@ -356,12 +356,37 @@
   <script>
     /* =========================================================
        CONFIGURACIÓN DE SUPABASE
-       Reemplaza con tus credenciales reales.
-       Debes tener las tablas: productos, ventas, detalle_ventas
+       ⚠️ SEGURIDAD: SOLO se usa la clave PÚBLICA (anon_key).
+       NUNCA pongas la clave secreta/service_role en el frontend.
+       Los valores se inyectan desde variables de entorno (Vercel):
+         - NEXT_PUBLIC_SUPABASE_URL
+         - NEXT_PUBLIC_SUPABASE_ANON_KEY
+       Si se sirve desde un entorno web (no Next), reemplaza el
+       placeholder de abajo SOLO con tu anon_key pública comenzando
+       por "sb_publishable_" (o el prefijo "eyJ..." de anon/legacy).
     ========================================================= */
-    const SUPABASE_URL = 'https://mgnesxzdkdwcdrakttsv.supabase.co';
-    const SUPABASE_KEY = 'sb_secret_FL6n2NOnwHCyRcyu8ze6Bw_0_DLWiFX';
-    const db = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+    let SUPABASE_URL = "TU_SUPABASE_URL";
+    let SUPABASE_ANON_KEY = "TU_SUPABASE_PUBLISHABLE_ANON_KEY";
+
+    // Si se ejecuta dentro de Next.js (procesado por Vercel en build),
+    // lee las variables de entorno definidas en el panel de Vercel.
+    if (typeof process !== "undefined" && process.env && process.env.NEXT_PUBLIC_SUPABASE_URL) {
+      SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
+      SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+    }
+
+    if (!SUPABASE_ANON_KEY || SUPABASE_ANON_KEY.indexOf("sb_publishable") !== 0
+      && SUPABASE_ANON_KEY.indexOf("eyJ") !== 0) {
+      console.warn(
+        "Faltan las credenciales de Supabase (anon_key). " +
+        "Configura NEXT_PUBLIC_SUPABASE_URL y NEXT_PUBLIC_SUPABASE_ANON_KEY " +
+        "en el panel de Vercel."
+      );
+    }
+
+    // NUNCA uses aquí tu service_role key. La anon_key es suficiente
+    // para el frontend siempre que tengas RLS habilitado en Supabase.
+    const db = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
     /* ================= Estado de la aplicación ================= */
     let carrito = [];               // [{id, nombre, precio_kilo, cantidad, subtotal, stock_kilos}]
